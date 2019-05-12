@@ -59,25 +59,90 @@ typedef char CHAR, *PCHAR;
 }
 #endif//__cplusplus
 
-typedef struct __SLEEP_SYSTEM{
-  private:
-   std::string sys_sleep;
-  public:
-   __SLEEP_SYSTEM(string sys_sleep = "00:00:00")
-   : sys_sleep(sys_sleep){
-      std::cout<<"Do you want the computer to shutdown"<<std::endl;
-   }
-}sleep_sys, *sleep_system, **Sleep_Sys;
+class sleep_machine;
+
+namespace std{
+ namespace SLEEP_SYS{
+  typedef struct __SLEEP_SYSTEM{
+    private:
+      std::string sys_sleep;
+    public:
+     __SLEEP_SYSTEM(string sys_sleep = "00:00:00")
+      : sys_sleep(sys_sleep), sys_provider(new string(sys_sleep)){
+         std::cout<<"Do you want the computer to shutdown. Yes or No. "<<std::endl;
+      }
+    protected:
+     std::string *sys_provider;
+
+    public: 
+     virtual ~__SLEEP_SYSTEM();
+     
+     static unsigned short sleep_validator;
+
+     friend class sleep_machine;
+
+   }sleep_sys, *sleep_system, **Sleep_Sys;
+ }
+namespace SLEEP_S = SLEEP_SYS;
+}
+namespace STD = std;
+
+unsigned short STD::SLEEP_SYS::__SLEEP_SYSTEM::sleep_validator = 0xAffu;
+
+namespace STD_SYS{
+ namespace SLEEP{
+   class sleep_machine{
+     private:
+      std::SLEEP_SYS::__SLEEP_SYSTEM sleep_s;
+      string* syst_sleep;
+     public: 
+      sleep_machine(string sys_sleep);
+      virtual ~sleep_machine(){
+        delete syst_sleep;
+      }
+   };
+ }
+}
+
+STD_SYS::SLEEP::sleep_machine::sleep_machine(string sys_sleep):sleep_s(sys_sleep){syst_sleep = new string(sys_sleep);}
+
+STD::SLEEP_S::__SLEEP_SYSTEM::~__SLEEP_SYSTEM(){
+    PRINT_TO_SCREEN("System shutdown successfully...");
+
+    delete sys_provider;
+}
+
+typedef union __ERROR_SYS__{
+  union{
+     char* timing_func_err;
+     signed error_system_value;
+  }err;
+}error, *error_sys, **err_sys;
 
 static int number_of_files;
+
+static STD_SYS::SLEEP::sleep_machine *sleep_mchn;
 
 int& addressing_system(unsigned int = 00, ...);
 static string sys_timer(string = (string)__system_time);
 
+
+
 __callback_main int32_t __stdcel __codecl __start_main(int argc, PCHAR argv[]){
-  
+try{
   CHAR nespace[7] = "\n\n\n\t\t\t";
   static string GMT;
+  error eror_sys;
+  error_sys error_1;
+  err_sys sys_error;
+  
+  error_1 = &eror_sys;
+  
+  sys_error = &error_1;
+
+
+
+  sleep_mchn = new STD_SYS::SLEEP::sleep_machine("01:00:29");
 
   GMT = sys_timer();
   
@@ -89,6 +154,12 @@ __callback_main int32_t __stdcel __codecl __start_main(int argc, PCHAR argv[]){
   
   TOTAL_FILE_SIZE_ON_DISK("%c%c%c%d", '\n', '\t', '\t', addressing_system());
   
+  delete sleep_mchn;
+  throw ;
+}
+catch(){
+
+}
   return 0x00U;
 }
 
