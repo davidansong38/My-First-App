@@ -49,7 +49,10 @@ extern "C"{
 #define PUT_ON_SCREEN puts
 #endif//PRINT_TO_SCREEN
 
+#undef NULL
+
 #define __system_time  __TIME__
+#define NULL 0x00000000U
 
 typedef int int32_t;
 typedef int32_t *pint32_t, **ptint32_t;
@@ -107,7 +110,7 @@ namespace STD_SYS{
 STD_SYS::SLEEP::sleep_machine::sleep_machine(string sys_sleep):sleep_s(sys_sleep){syst_sleep = new string(sys_sleep);}
 
 STD::SLEEP_S::__SLEEP_SYSTEM::~__SLEEP_SYSTEM(){
-    PRINT_TO_SCREEN("System shutdown successfully...");
+    PRINT_TO_SCREEN("\nSystem shutdown successfully...");
 
     delete sys_provider;
 }
@@ -126,6 +129,25 @@ static STD_SYS::SLEEP::sleep_machine *sleep_mchn;
 int& addressing_system(unsigned int = 00, ...);
 static string sys_timer(string = (string)__system_time);
 
+volatile signed check_machine_value(union __ERROR_SYS__** SYS_ERROR){
+  
+  void* sys_err;
+
+  sys_err = (void*)*SYS_ERROR;
+  
+  static error_sys sys_error = static_cast<error_sys>(sys_err);
+  
+  if(sys_error  == NULL){
+      puts("Please an error occured while trying to initialize the system timer........");
+  }
+  else{
+       cout<<"\nInitializing the system timing configuration settings......"<<endl;
+
+       sys_error->err.error_system_value = 0x0000;
+  }
+
+  return sys_error->err.error_system_value;
+}
 
 
 __callback_main int32_t __stdcel __codecl __start_main(int argc, PCHAR argv[]){
@@ -141,7 +163,6 @@ try{
   sys_error = &error_1;
 
 
-
   sleep_mchn = new STD_SYS::SLEEP::sleep_machine("01:00:29");
 
   GMT = sys_timer();
@@ -155,10 +176,21 @@ try{
   TOTAL_FILE_SIZE_ON_DISK("%c%c%c%d", '\n', '\t', '\t', addressing_system());
   
   delete sleep_mchn;
-  throw ;
-}
-catch(){
 
+  if(check_machine_value(sys_error) == 0x0000){
+    printf("\nSystem is in a good condition....");
+  }
+  else{
+    goto out_to_next;
+  }
+out_to_next:
+        throw *error_1;
+}
+catch(union __ERROR_SYS__& error_2){
+  
+    error_2.err.timing_func_err = "\nSystem crashed as a result of an unknown system error or bug. Error code 0x0002Ad33FFbE.";
+
+    std::cout<<error_2.err.timing_func_err<<endl;
 }
   return 0x00U;
 }
