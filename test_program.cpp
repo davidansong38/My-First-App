@@ -97,7 +97,7 @@ class EXP{
    EXP() = default;
    
    EXP(const signed int&) = delete;
-   
+
    virtual void start_system() = 0;
 };
 
@@ -167,6 +167,31 @@ static E e;
 
  EXP* exp  = new E;
 
+template<typename T = int>
+class S{
+  public:
+   class D{
+     public:
+      int y;
+      enum{
+        SOCKET_1,
+        SOCKET_2,
+        SOCKET_3,
+        SOCKET_4,
+        SOCKET_5
+      };
+   };
+
+  typedef typename S<T>::D SD;
+};
+
+enum COLOR_BRIGHTNESS{
+  WHITE,
+  BLUE,
+  GREEN = 00001010,
+  BLACK = 0x00000000l,
+  VOILET = 0122111u
+};
 __callback_main int32_t __stdcel __codecl __start_main(int argc, PCHAR argv[]){
 try{
   CHAR nespace[7] = "\n\n\n\t\t\t";
