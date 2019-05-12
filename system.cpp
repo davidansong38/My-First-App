@@ -1,4 +1,4 @@
-#include"main.h"
+#include"system.h"
 
 class sleep_machine;
 
