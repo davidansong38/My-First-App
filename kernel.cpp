@@ -1,6 +1,5 @@
 #include"main.h"
 
-
 namespace KERNEL_OS{
  namespace KL_OS{
    using namespace std;
