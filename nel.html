@@ -1,4 +1,4 @@
-<!--This website is a great on for Web Programming-->
+dd<!--This website is a great on for Web Programming-->
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -60,15 +60,34 @@
  .first_div input[type=submit]:hover{
     background-color: rgb(125,25,255);
     color: white;
+  }
+  .topnav{
+    position: absolute;
+    top: 55px;
+    right: 0px;
+    left: 0px;
+    bottom: 825px;
+    display: inline-block;
+    margin-right: none;
+    background-color: rgb(125,25,255);
+    
     }
+   .topnav a{
+    text-decoration: none;
+    text-align: center;
+    padding-left: 12px;
+    padding-right: 30px;
+    
+   }
    #vertical-menu{
     position: absolute;
-    top: 80px;
+    top: 115px;
     left: 0px;
-    width: 120px;
-    height: 700px;
-    padding-left: 40px;
+    width: 150px;
+    height: 761px;
+    padding-left: 0px;
     padding-right: 30px;
+    overflow-y: auto;
     }
   #vertical-menu li{
     list-style-type: none;
@@ -79,11 +98,53 @@
    text-decoration: none;
    color: #000;
    letter-spacing: 3px;
+   padding-left: 40px;
+   padding-right: 40px;
+   padding-top: 12px;;
+   padding-bottom: 12px;
    }
+  #vertical-menu li a:hover{
+    background-color: rgb(125,25,255);
+  }
+  #vertical-menu li a:link{
+    color: rgb(0,0,0);
+  }
+ #vertical-menu li a:unvisited{
+   color: rgb(0,0,2);
+ }
+ #vertical-menu li a:visited{
+   
+ }
+  .active{
+    background-color: rgb(125,25,255);
+   }
+  @media only screen and (max-width: 200px){
+  }
+ .footer{
+    position: absolute;
+    top: 885px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #000;
+    color: white;
+    text-align: center;
+  }
  </style>
 </head>
 
 <body>
+  
+ <div class="topnav">
+  <a href="#" name="links">Link</a>
+  <a href="#" name="links">Link</a>
+  <a href="#" name="links">Link</a>
+  <a href="#" name="links">Link</a>
+  <a href="#" name="links">Link</a>
+  <a href="#" name="links">Link</a>
+  <a href="#" name="links">Link</a>
+  <a href="#" name="links">Link</a>
+ </div>
  
  <div class="first_div">
   <h1 id="first-header" title="notebook.com" target="_blank">Notebook</h1>
@@ -92,6 +153,34 @@
  </div>
  
  <div id="vertical-menu">
+  <li><a href="#" name="links" class="active">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
+  <li><a href="#" name="links">Link</a></li>
   <li><a href="#" name="links">Link</a></li>
   <li><a href="#" name="links">Link</a></li>
   <li><a href="#" name="links">Link</a></li>
@@ -103,6 +192,9 @@
   <li><a href="#" name="links">Link</a></li>
  </div>
  
+<div class="footer">
+   Visit us @facebook.david.com
+</div>
 </body>
 
 </html>
