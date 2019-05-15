@@ -168,7 +168,9 @@ BEGIN_CODE
    
     void** rc = (void**)&tink;
 
-    int** dce = (int**)rc;
+    char** dce = (char**)rc;
+    
+    char* cs = (char*)*dce;
 
    char user_request[255];
 
