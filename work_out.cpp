@@ -58,10 +58,17 @@ namespace std{
     virtual ~KERNEL_OS();
     
     virtual KERNEL_OS* run_system();
-    virtual void check_system() = 0;
+    virtual void check_system();
     friend unsigned int Run_Check_On_Computer_Memory();
     static double Detect_Virus_On_System();
+ public:
+    class ESYS{
+       public:
+        void run(){}
+    };
   };
+
+  typedef typename std::KERNEL::KERNEL_OS<>::ESYS KER_ESYS;
 
   template<typename KERNEL_NAME, class KERNEL_ID, typename KERNEL_VERSION>
   inline double KERNEL_OS<KERNEL_NAME,KERNEL_ID,KERNEL_VERSION>::Detect_Virus_On_System(){
