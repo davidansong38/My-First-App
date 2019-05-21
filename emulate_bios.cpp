@@ -35,22 +35,37 @@ const char* const print_system(const char* dispatch,...){
 struct Main;
 
 typedef struct __BIOS{
-
+ static struct Main* system_main;
 }BIOS, *PBIOS, **PTBIOS;
 
+
 struct Main{
-  std::string time;
+public:
+  std::string sys_time;
   unsigned int system_board_id : 1;
   unsigned processor_speed : 7;
   int : 0;
-  signed int ram_size;
+  struct Main* sys_main;
+public:
+ struct{
+   union{
+   signed int ram_size;
+   char* ram_speed;
+  }ram_spec;
+ }ram_1;
 };
+
+static struct __BIOS syst_main;
+static struct Main smain;
 
 int main(int argc, PCHAR argv){
   
   const char* const send = print_system();
   
   std::cout<<send<<std::endl;
+
+  syst_main.system_main->sys_main = &smain;
+  syst_main.system_main->sys_main->system_board_id = 1;
 
   return 0x0000u;
 }
