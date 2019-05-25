@@ -57,14 +57,60 @@ typedef char *pchar32_t;
 #define __callback_main 
 #define __stdcel 
 #define __codcel __callback_main
+#define sys_id 255
+typedef char *cpu_id;
+typedef cpu_id system_ram, system_type;
+typedef int cpu_entity;
 
-static inline void __codcel booting_system(const char*, ...);
+struct BIOS;
 
+typedef struct __boot_bios_main{
+  std::string sys_time;
+  char* bios_version;
+  cpu_id cpu_idsys;
+  std::string number_cache;
+  char system_id[sys_id];
+  char* system_manufacturer;
+  char* system_date_manufacturing;
+  cpu_entity number_cpu;
+  union{
+     system_ram ram_size;
+  }rm;
+  struct __boot_bios_main *bootsystem;
+}boot, *Boot, **_BOOT;
+
+struct BIOS{
+  boot *btsystem;
+};
+
+static struct BIOS bios1;
+
+static struct BIOS* bios;
+
+static inline const void __codcel booting_system(const char*, ...);
+static bool sys_boot(struct __boot_bios_main* bbiosmain, ...){
+  using namespace std;
+  static char* btime = "System time is ";
+  cout<<'\n'<<btime<<(*bbiosmain).sys_time<<endl;
+
+  return true;
+}
 __callback_main int32_t __stdcel main(int32_t argc, pchar32_t argv[]){
+  static boot btoot = {__TIME__, "Bios version 1.0.01.1", "Intel x86-64 Dual Multi-processor/core 3.0GHz 1800+1", "Number of Caches  3", "19002AACVBX00PCDS", "Cyber Peace && Secret Intelligence", "21/01/2005", 2, .rm.ram_size = "1280MB/1.25GB"};
 
-  char startup[BOOT] = "System starting...........";
+  const char startup[BOOT] = "System starting...........";
+  bios1.btsystem = &btoot;
+  bios1.btsystem->bootsystem =  &btoot;
+
+  booting_system(startup);
+  sys_boot(&btoot);
 
   return 00l;
 }
 
-void booting_system(const char*);
+const void booting_system(const char *const start_computer, ...){
+    
+  DISPLAY_TO_SCREEN_ON_START_UP("%c%s", '\n', start_computer);
+
+  return;
+}
