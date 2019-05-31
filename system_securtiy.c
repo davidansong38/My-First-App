@@ -3,7 +3,8 @@
 #include<string.h>
 
 #define system_time __TIME__
-#define USRNAME 00010001
+#define USRNAME 000010001<<01
+#define USERNAME 1>>00010010
 
 typedef char user_name[USRNAME];
 typedef signed long usrbackup_recovery_pswd;
