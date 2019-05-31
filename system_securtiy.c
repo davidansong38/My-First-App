@@ -17,6 +17,10 @@ typedef char *usr_name;
 #define nullptr 0x00L
 #define MBR 512
 
+struct PCB;
+struct GDT;
+union System_MMU;
+
 typedef struct Local_Security{
    user_name usrname;
    char* usr_pswd;
@@ -61,10 +65,33 @@ typedef struct Core_dump{
   total_address_space_in_mem tadd_spcmem;
 }core_dump, *CoreDump, **coredump;
 
-struct GDT{
+typedef char *Page_Mode;
+typedef char *Frame_Mode;
+
+union System_MMU{
+  Page_Mode pmode;
+  Frame_Mode fmode;
+};
+
+typedef char cpu_mode[120];
+typedef unsigned cpu_state_id;
+typedef unsigned cpu_total_state;
+typedef float cpu_speed;
+
+struct cpu_state{
+  cpu_mode cpumode;
+  cpu_state_id cpustid;
+  cpu_total_state cputtstate;
+  cpu_speed cpspeed;
+};
+
+
+typedef struct __GDT{
   struct PCB* process_board;
   CoreDump cdump;
-};
+  union System_MMU sys_mmu;
+  struct cpu_state cpu_sttate;
+}GDT, *SYS_GDT, **SYSTEM_GDT;
 
 static inline int sys_security(usr_name username, const char* usr_rec_email, char nl, usrbackup_recovery_pswd usrbrec_pswd, ...){
    
