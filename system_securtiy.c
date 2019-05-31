@@ -4,7 +4,7 @@
 
 #define system_time __TIME__
 #define USRNAME 000010001<<01
-#define USERNAME 1>>00010010
+#define USERNAME 0x01>>00010010
 
 typedef char user_name[USRNAME];
 typedef signed long usrbackup_recovery_pswd;
@@ -195,6 +195,7 @@ int run_cpu(int sys_sec, struct Local_Security* lcalsec, ...){
 }
 
 #define HINT 0xac
+#define snd_task puts
 
 const unsigned int sysm(int jump){
 
@@ -206,12 +207,15 @@ const unsigned int sysm(int jump){
     case 0100:
     case 0x90:
     case 2332:
-     printf("Access Granted to read multiple file at different times...");
+     printf("Access Granted to read multiple files at different times...");
      break;
     case 0x666:
     case 0x720:
-     printf("Access && Authorization granted to read and write file with execute permission....");
+     printf("Access && Authorization granted to read and write files with execute permission....");
      break;
+     case 0x0012:
+      snd_task("Access & Authorization denied. Declaimer!!!";
+      break;
     default: 
      puts("System offline for the moment....");
   }
