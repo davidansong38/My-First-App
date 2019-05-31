@@ -33,6 +33,39 @@ static struct Local_Security system_sec = {.usrname = "Admin", .usr_pswd = "XQBL
 
 static inline void* lclsecurity(void*, ...);
 
+typedef unsigned long PID;
+typedef float cpu_spd_on_ech_process;
+typedef char *process_name;
+typedef char process_mem_sz;
+typedef signed short process_uid;
+
+struct PCB{
+  PID process_id;
+  cpu_spd_on_ech_process process_spd;
+  process_name prc_name;
+  process_mem_sz prc_mem_sz;
+  union{
+    process_uid puid;
+  }proc_uid;
+};
+
+typedef unsigned int memory_state;
+typedef int memory_size;
+typedef double memory_speed;
+typedef long total_address_space_in_mem;
+
+typedef struct Core_dump{
+  memory_state *mem_state;
+  memory_size mem_sz;
+  memory_speed mem_speed;
+  total_address_space_in_mem tadd_spcmem;
+}core_dump, *CoreDump, **coredump;
+
+struct GDT{
+  struct PCB* process_board;
+  CoreDump cdump;
+};
+
 static inline int sys_security(usr_name username, const char* usr_rec_email, char nl, usrbackup_recovery_pswd usrbrec_pswd, ...){
    
    printf("User name : %s\nEmail : %s%cPassword : %ld\n", username, usr_rec_email, nl, usrbrec_pswd);
