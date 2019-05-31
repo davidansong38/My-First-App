@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<iostream>
+#include<typeinfo>
+
+#pragma once 
+
+#undef __cplusplus
+#define __cplusplus 1
+#define send_req "Sending request to user..........."
+
+
+#ifdef __cplusplus
+#define __start_main main 
+#define __codecl 
+#define __callback_main __codecl
+#define __stdcel
+#define MessageBox(send_req) 
+#elif defined __system_ui
+#define __system_sec
+#define localhost "127.0.0.1"
+#define HOST_IP localhost
+#define SYSTEM_IPADDR "localhost"
+#else
+enum{
+  SERVER_SOCKET_1,
+  SERVER_SOCKET_2 = 0x0012Abcedd,
+  SERVER_SOCKET_3 = 00010111,
+  SERVER_SOCKET_4 = 0400121344
+  SERVER_SOCKET_5
+}socket;
+#define filesystem(type) type^01
+#define filesystem_formatting((filesystem(type)>12)?"Cleaning drive while waiting......":"Formatting drive using ntfs.....";)
+#endif//__cplusplus
+
+
+#ifndef __cplusplus
+#line 8 "sys"
+#error A++ Please a macro not defined by the Standard ISO C++ \ or ANSI C or in your header file//error pending
+#warning Warning an Error occured in your Program or Application
+#endif/*Error or Bug pending@localhost/in header file "sys"...*/
