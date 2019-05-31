@@ -106,6 +106,8 @@ static inline void end_file();
 
 static inline const unsigned int sysm(int);
 
+extern inline const struct __GDT *global_des_table(const SYS_GDT, ...);
+
 int main(void){
   system_sec.sys_permission.write_file = 0xac;
   system_sec.sys_permission.read_file = 0010;
