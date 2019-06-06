@@ -131,6 +131,8 @@ enum class sysm_color{
 };
 
 class dev_interface;
+class die_in;
+class kill_task;
 
 namespace DEVICE_MANAGER{
  namespace DEVICE{
@@ -151,7 +153,7 @@ namespace DEVICE_MANAGER{
 
        cout<<"Initializing & Installing device drivers............."<<endl;
      }
-     virtual ~device_manager();
+     virtual handle_irq handle_device_event ~device_manager();
      virtual void __sys_cal(size_t ret_sys_call = 0) = 0;
      void operator()(std::string device_analyzer = "Not available"){
          
@@ -163,6 +165,10 @@ namespace DEVICE_MANAGER{
 
        return derror;
      }
+
+     friend class die_in;
+     friend class kill_task;
+     friend void insert(die_in, kill_task, ...);
   }; 
  
  }
