@@ -28,6 +28,12 @@ namespace cmd = CMD;
 #define status_exit_code !(!(00000000))
 #define MessageBox(sys_send_message) 
 
+#ifdef __start_main
+#line 00 "main.cpp"
+#error A Please has not being defined by the standard ISO C++ or ANSI C in your file
+#warning Please maro definition error. Alert!!!
+#endif//
+
 #ifndef __start_main
 #define __start_main main
 #define __callback_main 
@@ -62,6 +68,23 @@ typedef char* usr_disk_name;
 #define rem_dvc
 #define sys_super "System in supervisory mode"
 
+#define RECORDER(record) record<<0x02
+#if RECORDER(record) == 32
+#define sys_sound_driver 001
+#define __system_cll_sound_driver(sys_sound_driver)
+#define SOUND_DDRV "Initializing sound driver with RTL Sounds (#usr/sound/)....."
+#define SOUND_DRIVE(SOUND_DDRV)
+#define SOUND_DRIVER(SOUND_INIT) 
+#elif RECORDER(record) == 16
+#define REPEAT_CALLBACK_TRACK 0.00000
+#define FORWARD_REPEAT 1.0
+#define BACKWARD_REPEAT 6.0
+#else
+#define wrong_turn 0100
+#endif//This is a test recorder
+
+#define LIST 'l' | 'L'
+
  float hack(){
   
   static const float hackinson = 9.001;
@@ -90,10 +113,12 @@ typedef struct _zindex_boot{
 }zindex_boot, *zindexboot, **zndxbt;
 
 typedef struct ZNDX_FILE_PART{
-  static FPART Disk_fileName;
+  FPART Disk_fileName;
   part_totale fpart;
   usr_disk_name user_disk_name;
 }ZFPT;
+
+static ZFPT zfpt = {.Disk_fileName = "C:\\", .fpart = 00000011, "zindex OS"};
 
 enum class sysm_color{
   WHITE,
@@ -134,29 +159,27 @@ namespace DEVICE_MANAGER{
 
        return;
      }
-     const char *const send_dv_message(char derror[])const;
+     const char *const send_dv_message(char derror[]){
+
+       return derror;
+     }
   }; 
-  template<typename dev_name, class dev_id, typename dev_class>
-   const char *const device_manager<dev_name, dev_id, dev_class>::send_dv_message(char derror[])const{
-  
-     return derror;
-    }
+ 
  }
   using namespace DEVICE;
 
 class dev_interface : protected device_manager<std::string>{
   public:
    void __sys_cal(size_t ret_sys_call){
-      dev_interface dint;
-      device_manager<std::string>& dmanager = dint;
-
-      dmanager.operator()();
+      
+      operator()();
    }
-   const char* const send_dv_message(char[] = "No Error.")const;
+   void snd_call(char d[]);
+   
 };
 
-inline const char *const dev_interface::send_dv_message(char derror[])const{
-  return derror;
+void dev_interface::snd_call(char d[]){
+  printf("%s",send_dv_message(d));
 }
 
 namespace dm = DEVICE;
@@ -167,18 +190,52 @@ template<typename dev_name, class dev_id, typename dev_class>
 device::dm::device_manager<dev_name, dev_id, dev_class>::~device_manager(){delete[] dvId;}
 
 static enum sysm_color symcolor;
+typedef int (*func_p)(signed, double,  ...);
+
+static inline int add(signed = 0, double = 0.000, ...);
+
+static void **dns_redirect;
+
+static inline short* uniq(const void*, ...);
+static int rem;
+
+int& delete_rem(float, ...);
+const char* git()throw(double){
+
+  return "My first Exception";
+}
 
 __stdcel int32_t __callback_main __start_main(int4_t argc, PTCHAR argv)__codecl{
  using namespace std;
 try{
-  char* color[] = {"Configuring grapics card for color\ change....", "Screen Resolution reduced by 10x", sys_super};
+  static ZFPT zfpt = {.Disk_fileName = "C:\\", .fpart = 00000011, "zindex OS"};
+
+  const char *const color[] = {"Configuring grapics card for\
+  color change....", "Screen Resolution reduced by 10x", sys_super};
   symcolor = sysm_color::GREY;
   static device::dev_interface* dint = new device::dev_interface;
   dint->__sys_cal(0);
   static device::dev_interface dginter;
-  
+  short ft;
+  short* font = &ft;
+  cin>>*font;
+
+  func_p fp;
+
+  fp = add;
+  cout<<"n3 = "<<fp(2, 9.1)<<endl;
+
+  dns_redirect = (void**)&font;
+
+  printf("%i\t", *uniq((const void*)*dns_redirect));
+  printf("\n%d\n", delete_rem(133.0) = 9);
+  std::cout<<git()<<endl;
+
   if(symcolor == sysm_color::GREY){
     cout<<color<<endl;
+    printf("Disk File-Name : %s%c", zfpt.Disk_fileName, '\n');
+
+    goto run_sys;
   }
   else if(symcolor == sysm_color::WHITE){
     
@@ -187,12 +244,76 @@ try{
   else{
     printf("%s", color[2]);
   }
+  
+run_sys:
+  int init;
+  scanf("%d", &init);
+
+  for(;init < ((RECORDER(8)/2)/4)-1;init++){
+     puts("Installing sound driver.....");
+     if(init == 2){
+       goto select_record;
+     } 
+  }
+
+  select_record:
+    while(init < 3){
+
+      if(init == 2){
+        do{
+          switch('l'){
+
+            case 0x41:
+            case 97:
+            case 'C':
+            case 'c':
+             std::cout<<"Click -> to go back Home"<<endl;
+             break;
+            case 'v':
+            case 'V':         
+             puts("Application terminated!!!");
+             break;
+            default:
+             printf("%s", "This device is not working properly..\n");
+          }
+        }while(init < 1);
+      }
+    
+      ++init;
+    }
+  delete dint;
+
   throw dginter;
 
 }
 catch(device::dev_interface& dmanager){
-   printf("%s", dmanager.send_dv_message("Please a device not responding. Check whether any newly or faulty hardware(H/W) has being installed or inserted into the computer. Please Remove and reboot or restart the system....")<<endl;
+    dmanager.snd_call("Please a device not responding. Check whether any newly or faulty hardware(H/W) has being installed or inserted into the computer. Please Remove and reboot or restart the system....");
 }
-//dm::device_manager<std::string>
+catch(...){
+
+}
+//dm::device_manager<std::string>dev_interface
  return status_exit_code;
+}
+
+int add(signed n1, double n2, ...){
+  
+  unsigned n3;
+
+  return n3 = (n1 > 2)?(unsigned)n1 + n2 : 120;
+}
+static  short fs;
+
+short* uniq(const void* fd, ...){
+  short* fn = (short*)fd;
+ fs = (short)*fn;
+
+  return &fs;
+}
+
+int& delete_rem(float remove, ...){
+
+  rem = (int)remove;
+
+  return rem; 
 }
