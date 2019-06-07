@@ -27,7 +27,7 @@ class CLIENT_SOC(SERVER__SOCKET):
            print("{}".format(self.__client_request))
     def write_req_to_file(self):
         return ("User Request :  "+ self.__client_success_message + "\n" + self.__client_syn_ack)
-        
+
 def rec_req(recev_req = ""):
         #recev_req.close()
         return 255
@@ -77,3 +77,7 @@ print("Your current Location on Ghana's GPS : "+ ghana_satellite_for_streets[2])
 current_tribes_in_ghana = dict(akans = 12, ewe = 9, muslims = 90)
 current_ghana_economic_situation = {"education" : 91.2282003, "total_fund" : 81.028981, "social_security" : "Not safe", "total_results_on_ghana_sys" : "Not great or Poor"} 
 print("Total output in Ghana's Economy : " + current_ghana_economic_situation["total_results_on_ghana_sys"])
+
+current_map_settings = set(("Default", "Configured",  "Initialized"))
+
+current_map_controls = tuple(("0 -> Down", "1 -> Right", "8 -> Down", "2 -> Up"))
