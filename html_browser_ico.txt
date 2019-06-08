@@ -1,0 +1,17 @@
+<link rel="shortcut icon"
+ href="https://example.com/myicon.ico">
+ <link rel="icon"
+ type="image/vnd.microsoft.icon"
+ href="https://example.com/image.ico">
+ <link rel="icon" type="image/x-icon"
+ href="https://example.com/image.ico">
+ <link rel="icon"
+ href="https://example.com/image.ico">
+ <link rel="icon" type="image/gif"
+ href="https://example.com/image.gif">
+ <link rel="icon" type="image/png"
+ href="https://example.com/image.png">
+ <link rel="icon" type="image/svg+xml"
+ href="https://example.com/image.svg">
+ <link rel="mask-icon"
+ href="https://example.com/image.svg" color="red">
