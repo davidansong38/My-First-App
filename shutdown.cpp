@@ -41,10 +41,11 @@ catch(...){
 const void check_shutdown(char* shut_check, ...){
     char empty = ' ';
 
-    if(*shut_check == empty)
+    if(*shut_check == empty){
        cout<<"Enter any of the Listed objects(r,s,h,l)";
        scanf("%c",&(*shut_check));
-     
+    }
+    
   switch(*shut_check){
     case RESTART:
     case restart:
