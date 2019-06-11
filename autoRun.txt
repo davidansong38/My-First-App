@@ -1,0 +1,105 @@
+﻿<?xml version="1.1" encoding="utf- 8" standalone-application="yes" ?>
+ <xsl:run_system name="system_auto_run" value="sys_request_first" manufacturer="dba_cooporation" location="Ghana" referral="http://www.dbacarcollections.ueuo.com" xmlns:xsl="https://en.dbacarcollections.ueuo.com.gh">
+  <check_system_date name="date" value="system_date" run_date="auto">System Date is : __RUNNING_DATE</check_system_date>
+ </xsl:run_system>
+
+
+
+sys_req.h:
+#include"system"
+
+#pragma once 
+
+#define FILE_LAYOUT 0x20
+
+typedef char filesystem_name[];
+typedef char *fileName;
+typedef unsigned short fileSize;
+typedef long total_filesz;
+typedef char *fileInode, *file_Inode;
+typedef char file_layout[FILE_LAYOUT];
+typedef char (*file_run_fthread)(const char*, int8_t, bool, ...);
+
+
+
+
+typedef struct File_System{
+  filesystem_name file_system_name;
+  total_filesz file_totalSize;
+  fileName filename;
+  fileSize filesz;
+  file_inode fileinode;
+  file_layout fileLayout;
+}filesystem, *Filesystem, **FileSystem;
+
+system:
+#ifdef __cplusplus
+#include<stdio.h>
+#include<stdlib.h>
+#include<iostream>
+#include<typeinfo>
+#endif// Macro check
+
+#pragma once
+#undef __cplusplus
+
+#ifdef __cplusplus
+#line 5 "main.c"
+#error A++ Please a macro defined by the Standard ANSI C is not allowed
+#warning Please undefine a macro 
+#elifdef __start_main
+#undef __start_main
+#else 
+#define sys_stop(stop) stop<<0x000002
+#define restart_sys(rsys)
+#endif// Error check on __cplusplus macro 
+
+#ifndef __cplusplus
+#define __cplusplus 01
+#elif not defined __start_main
+#define __start_main main
+#else
+#define send_message "The process is currently processing the\ request......
+#define MessageBox(send_message)
+#endif/*Error handling still on __cplusplus*/
+
+#ifdef __cplusplus
+extern "C"{
+#endif// __cplusplus
+
+ typedef int int32_t;
+ typedef int32_t *pint32_t, **pint4_t;
+ typedef char *PCHAR;
+ typedef PCHAR PTCHAR[];
+
+#ifdef __cplusplus
+}
+#endif//__cplusplus
+
+main.cpp:
+#include"system"
+
+#ifndef __start_main 
+#define __start_main main
+#define __callback_main
+#define __codecl __callback_main
+#define __stdcel __codecl
+#define begin_code_entry {
+#define end_code_exit }
+#elif not defined BEGIN_CODE 
+#define BEGIN_CODE {
+#define END_CODE }
+#else
+#define chng_task1 
+#define CHANGE_PROCESS_TASK(chng_task1) 
+#endif//
+
+
+__callback_main int32_t __codecl __start_main __stdcel(int32_t argc, PTCHAR argv)
+begin_code_entry
+
+  //printf("Time in ghana is %s", __TIME__);
+
+  return 0x0000U;
+
+end_code_exit
