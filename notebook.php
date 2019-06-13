@@ -10,9 +10,9 @@
        }
        else{
          print("Welcome to Notebook.com");
-         echo "<a href='https://www.notebook.com'?web=notebook.com&&category=musica&career=Musician&&&&eid=musician_request8844949322244&&d34939jkdidjd8i9e9339j2kkmk&djd8339kkdideii49494&&idi9393jdkdu99i3829293m3939i33u9"<a>Link to notebook.com</a>
-         echo "<a href='https://www.notebook.com'?web=notebook.com&&category=movie&career=Actor&&&&eid=movie_actor_request994494994944&d34939jkdidjd8i9e9339j2kkmk&djd8339kkdideii49494&&idi9393jdkdu99i3829293m3939i33u9"<a>Link to notebook.com</a>
-         echo "<a href='https://www.notebook.com'?web=notebook.com&&category=movie&career=Movie_writer&&eid=movie_writer_request93493kdkdidid&&d34939jkdidjd8i9e9339j2kkmk&djd8339kkdideii49494&&idi9393jdkdu99i3829293m3939i33u9"<a>Link to notebook.com</a>
+         echo "<a href='https://www.notebook.com/<?php $_SERVER["PHP_SELF"] ?>'?web=notebook.com&&category=musica&career=Musician&&&&eid=musician_request8844949322244&&d34939jkdidjd8i9e9339j2kkmk&djd8339kkdideii49494&&idi9393jdkdu99i3829293m3939i33u9"<a>Link to notebook.com</a>
+         echo "<a href='https://www.notebook.com/<?php $_SERVER["PHP_SELF"] ?>'?web=notebook.com&&category=movie&career=Actor&&&&eid=movie_actor_request994494994944&d34939jkdidjd8i9e9339j2kkmk&djd8339kkdideii49494&&idi9393jdkdu99i3829293m3939i33u9"<a>Link to notebook.com</a>
+         echo "<a href='https://www.notebook.com/<?php $_SERVER["PHP_SELF"] ?>'?web=notebook.com&&category=movie&career=Movie_writer&&eid=movie_writer_request93493kdkdidid&&d34939jkdidjd8i9e9339j2kkmk&djd8339kkdideii49494&&idi9393jdkdu99i3829293m3939i33u9"<a>Link to notebook.com</a>
          
        }
    }
