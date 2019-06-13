@@ -72,4 +72,14 @@
    else{
     echo "Unable to delete User_Data from Table successfully.";
   }
+
+ $sql_db = "Select * from Users where $username = 'zindex' or $user_country = 'Ghana';
+ 
+ 
+  if($connect->query($sql_db) == True){
+    print("User_Data Selected successfully");
+  }  
+   else{
+    echo "Unable to select User_Data from Table successfully.";
+  }
 ?>
