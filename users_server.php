@@ -18,6 +18,7 @@
   $sql_db = "Create database USERS_DB";
   if($connect->query($sql_db) == True){
     print("Database created successfully");
+    show Database USERS_DB;
    }
   else{
     echo "Unable to create Database.";
@@ -82,4 +83,16 @@
    else{
     echo "Unable to select User_Data from Table successfully.";
   }
+  
+  $sql_db = "Drop table Users";
+
+  if($connect->query($sql_db) == True){
+    print("Users deleted successfully");
+  }  
+   else{
+    echo "Unable to delete Users from USERS_DB successfully.";
+  }
+ $sql_db->close();
+ $connect->close();
+ 
 ?>
