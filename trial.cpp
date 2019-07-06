@@ -85,3 +85,93 @@ int32_t main(int argc, char* argv[]){
 
   return 0x00;
 }
+
+/*This is the line for the second program*/
+#ifdef __cplusplus
+#undef __cplusplus
+#endif/*This section is used to handle any definition of the __cplusplus macro*/
+
+#ifndef __cplusplus
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#elif not defined __start_main
+#define __not_running
+#else
+#define __quit_process_exec
+#endif//
+
+#define FILE_BYTES 1024
+
+typedef unsigned long filesize;
+typedef double filebytes;
+typedef char file[1024];
+typedef char fileSort;
+
+static inline void send_user_request(const char* const, const char*, ...);
+
+typedef struct Filesystem{
+   struct Filesystem* filesys;
+   FILE* file_searcher;
+   char* fileName;
+   filesize Filesize;
+   filebytes Filebytes;
+   file File;
+   fileSort filesort;
+}filesystem, *Filesys, 
+**FILESYSTEM;
+
+static struct Filesystem* file_system;
+
+static inline Filesys Fileinfo(FILESYSTEM, ...);
+
+int main(int argc, char* argv[]){
+  file_system = 
+  (struct Filesystem*)malloc(sizeof(struct Filesystem));
+  
+  
+  file_system = Fileinfo(&file_system);
+
+  send_user_request("%s", "Test mode");
+  
+  file_system->file_searcher = (FILE*)calloc(25, sizeof(FILE));
+
+  fscanf(file_system->file_searcher, "%s", (*file_system).File);
+  
+  free(file_system->file_searcher);
+  free(file_system);
+  return 0x00U;
+}
+
+
+void send_user_request(const char* const send_print_mode, const char* start_printer, ...){
+
+  printf(send_print_mode, start_printer);
+
+  return;
+}
+
+Filesys Fileinfo(FILESYSTEM filehelper, ...){
+
+  static struct Filesystem *fileFinfo;
+  filesystem sys_file;
+  fileFinfo = *filehelper;
+  //sys_file.Filesize = FILE_BYTES;
+
+ static const char file_content[FILE_BYTES] = "Please read the software manual before doing any undesirable decisions which may cause your system from permanent working or responding......";
+
+
+  fileFinfo->filesys = &sys_file;
+  fileFinfo->filesys->file_searcher = (FILE*)calloc(25, sizeof(FILE));
+
+  fileFinfo->filesys->file_searcher = fopen("Filesystem_info.fs", "w");
+  
+  fprintf(fileFinfo->filesys->file_searcher, "%s", file_content);
+
+
+  fclose(fileFinfo->filesys->file_searcher);
+  free((*fileFinfo).filesys->file_searcher); 
+  //free((*fileFinfo).filesys);
+
+  return *filehelper;
+}
