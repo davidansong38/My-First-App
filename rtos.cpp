@@ -24,7 +24,7 @@
 #elif not defined __start_main
 #define __start_main main
 #else
-#define send_message "The process is currently processing the\ request......
+#define send_message "The process is currently processing the\ request......"
 #define MessageBox(send_message)
 #endif/*Error handling still on __cplusplus*/
 
